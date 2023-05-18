@@ -2,5 +2,7 @@
 Divide and Conquer
 
 optimal Substructure
-Merge sort, quick sort, and binary search
+common divide and conquer algorithm: Merge sort, quick sort, and binary search
+
+
  */
