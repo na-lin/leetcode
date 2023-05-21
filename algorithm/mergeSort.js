@@ -43,16 +43,30 @@ function merge(arr1, arr2) {
  * @returns {number[]}
  */
 function mergeSort(arr) {
-  if (arr.length <= 1) {
-    return arr;
-  }
-  // divide
-  const mid = Math.floor(arr.length / 2);
-  const arr1 = mergeSort(arr.slice(0, mid));
-  const arr2 = mergeSort(arr.slice(mid));
+  // if (arr.length <= 1) {
+  //   return arr;
+  // }
+  // // divide
+  // const mid = Math.floor(arr.length / 2);
+  // const arr1 = mergeSort(arr.slice(0, mid));
+  // const arr2 = mergeSort(arr.slice(mid));
 
-  // conquer
-  return merge(arr1, arr2);
+  // // conquer
+  // return merge(arr1, arr2);
+
+  return help(arr, 0, arr.length - 1);
+}
+
+function help(arr, left, right) {
+  if (left === right) {
+    return [arr[left]];
+  }
+
+  const mid = left + Math.floor((right - left) / 2);
+  const leftArr = help(arr, left, mid);
+  const rightArr = help(arr, mid + 1, right);
+
+  return merge(leftArr, rightArr);
 }
 
 console.log(merge([1, 2], [3, 4]));
