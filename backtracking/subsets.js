@@ -19,3 +19,33 @@ function backtracking(elements, result, lens, subset, idx) {
     subset.pop();
   }
 }
+
+// DFS
+function subset2(nums) {
+  const result = [];
+  dfs(nums, result, [], 0);
+  return result;
+}
+
+function dfs(nums, result, subset, idx) {
+  if (idx >= nums.length) return;
+
+  if (subset.length <= nums.length) {
+    result([...subset]);
+  }
+
+  for (let i = idx; i < nums.length; i++) {
+    subset.push(nums[i]);
+    dfs(nums, result, subset, i + 1);
+    subset.pop();
+  }
+}
+
+/**
+nums = [1,2,3]
+
+              []
+      [1]           [2] [3]
+  [1,2][1,3]       [2,3]
+[1,2,3]
+    */
