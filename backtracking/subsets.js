@@ -41,6 +41,15 @@ function dfs(nums, result, subset, idx) {
   }
 }
 
+// Union Find
+
+class UionFind {
+  constructor() {
+    this.root = [];
+    this.count = 0;
+  }
+}
+
 /**
 nums = [1,2,3]
 
