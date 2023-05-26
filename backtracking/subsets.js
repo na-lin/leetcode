@@ -48,6 +48,14 @@ class UionFind {
     this.root = [];
     this.count = 0;
   }
+  find(x) {
+    if (this.root[x] === x) {
+      return x;
+    } else {
+      this.root[x] = this.find(this.root[x]);
+      return this.root[x];
+    }
+  }
 }
 
 /**
