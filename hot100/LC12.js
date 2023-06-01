@@ -36,3 +36,33 @@ function intToRoman(num) {
 4 IV
 0 - 9
  */
+
+//Approach 2 : greedy
+var intToRoman2 = function (num) {
+  const map = [
+    [1000, "M"],
+    [900, "CM"],
+    [500, "D"],
+    [400, "CD"],
+    [100, "C"],
+    [90, "XC"],
+    [50, "L"],
+    [40, "XL"],
+    [10, "X"],
+    [9, "IX"],
+    [5, "V"],
+    [4, "IV"],
+    [1, "I"],
+  ];
+  let res = [];
+  while (num > 0) {
+    for (let [value, symbol] of map) {
+      if (num >= value) {
+        res.push(symbol);
+        num -= value;
+        break;
+      }
+    }
+  }
+  return res.join("");
+};
